@@ -1,9 +1,7 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:food_store/widgets/List_Widget.dart';
 import 'package:food_store/widgets/bottom_cart_sheet.dart';
 import 'package:food_store/widgets/item_widget.dart';
-import 'package:food_store/widgets/popular_item_widget.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,6 +28,7 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              // Top menu and cart icon
               Container(
                 padding: EdgeInsets.only(right: 20, left: 15, top: 10),
                 child: Row(
@@ -84,20 +83,23 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+              // Store text
               Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Store',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  children: [
+                    Text(
+                      'Store',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
+              // Search bar
               Container(
                 margin: EdgeInsets.all(10),
                 padding: EdgeInsets.symmetric(horizontal: 2),
@@ -124,10 +126,27 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+              // Horizontal categories list
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 15),
+                height: 60,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      categoryItem(Icons.local_florist, 'Vegetable'),
+                      categoryItem(Icons.set_meal, 'Meat'),
+                      categoryItem(Icons.panorama_fish_eye, 'Fish'),
+                      categoryItem(Icons.local_florist, 'Fruit'),
+                    ],
+                  ),
+                ),
+              ),
+              // Rest of the UI (Product list)
               Container(
                 padding: EdgeInsets.only(top: 20),
                 decoration: BoxDecoration(
-                  color: Colors.black12,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
@@ -136,8 +155,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ListWidget(),
-                    PopularItemWidget(),
+                    // Your item widgets here
                     ItemsWidget(),
                   ],
                 ),
@@ -146,6 +164,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      // Bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -172,6 +191,24 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.green,
         onTap: _onItemTapped,
+      ),
+    );
+  }
+
+  // A function to create each category item with icon and label side by side
+  Widget categoryItem(IconData icon, String label) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 25,
+            backgroundColor: Colors.white,
+            child: Icon(icon, color: const Color.fromARGB(255, 2, 74, 5)),
+          ),
+          SizedBox(width: 10), // Space between icon and label
+          Text(label, style: TextStyle(fontSize: 16)),
+        ],
       ),
     );
   }

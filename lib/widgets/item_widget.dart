@@ -11,22 +11,21 @@ class ItemsWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-                Text(
-                  "Top",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                Text(
-                  "See All",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54,
-                  ),
-                ),
+                // Text(
+                  // "Top",
+                  // style: TextStyle(
+                  //   fontSize: 25,
+                  //   fontWeight: FontWeight.bold,
+                  //   color: Colors.black,
+                  // ),
+            // Text(
+            //       "See All",
+            //       style: TextStyle(
+            //         fontSize: 15,
+            //         fontWeight: FontWeight.bold,
+            //         color: Colors.black54,
+            //       ),
+            //     ),
           ],
         )
         ),
@@ -46,11 +45,11 @@ class ItemsWidget extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black12.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 3,
-            ),
+            // BoxShadow(
+            //   color: Colors.black12.withOpacity(0.5),
+            //   spreadRadius: 1,
+            //   blurRadius: 3,
+            // ),
           ],
           ),
           child: Column(
@@ -62,8 +61,8 @@ class ItemsWidget extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.all(10),
                   child:Image.asset("images/$i.png", 
-                  height: 40,
-                  width: 40,
+                  height: 100,
+                  width: 100,
                  
                   ),
                 ),
@@ -75,7 +74,7 @@ class ItemsWidget extends StatelessWidget {
                   child: Text(
                     "Item ",
                     style: TextStyle(
-                      fontSize: 12, 
+                      fontSize: 18, 
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                       ),
@@ -89,7 +88,7 @@ class ItemsWidget extends StatelessWidget {
                         child: Text(
                           "Vegetable ",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
